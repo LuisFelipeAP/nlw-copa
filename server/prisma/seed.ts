@@ -9,15 +9,15 @@ async function main() {
 
     const user = await prisma.user.create({
         data: {
-            name: 'John Doe',
-            email: 'johndoe@gmail.com',
+            name: 'Ciclano',
+            email: 'ciclano@gmail.com',
             avatarUrl: 'https://github.com/LuisFelipeAP.png',
         }
     })
 
     const pool = await prisma.pool.create({
         data: {
-            title: 'Example Pool',
+            title: 'Testing Pool',
             code: code,
             ownerId: user.id,
 
@@ -31,7 +31,7 @@ async function main() {
 
     await prisma.game.create({
         data: {
-            date: '2022-11-12T12:00:00.043Z',
+            date: '2022-11-19T12:00:00.043Z',
             firstTeamCountryCode: 'DE',
             secondTeamCountryCode: 'BR',
 
@@ -55,7 +55,7 @@ async function main() {
 
     await prisma.game.create({
         data: {
-            date: '2022-11-13T12:00:00.043Z',
+            date: '2022-11-18T12:00:00.043Z',
             firstTeamCountryCode: 'BR',
             secondTeamCountryCode: 'AR',
         }

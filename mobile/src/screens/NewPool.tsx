@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Heading, Text, VStack, useToast, Toast } from "native-base";
+import { Heading, Text, VStack, useToast } from "native-base";
 
 import { Header } from "../components/Header";
 import Logo from "../assets/logo.svg"
@@ -16,8 +16,9 @@ export function NewPool() {
     async function handlePoolCreate() {
         if (!title.trim()) {
             return toast.show({
-                title: "",
+                title: "Informe um nome para o seu bolão.",
                 placement: "top",
+                duration: 3000,
                 bgColor: "red.500"
             })
         }
@@ -27,8 +28,9 @@ export function NewPool() {
             await api.post('/pools', { title })
 
             toast.show({
-                title: "Pool created succesfully!",
+                title: "Bolão criado com sucesso!",
                 placement: "top",
+                duration: 3000,
                 bgColor: "green.500"
             })
 
@@ -37,8 +39,9 @@ export function NewPool() {
             console.log(error)
 
             toast.show({
-                title: "Not possible to create pool",
+                title: "Não foi possível criar o bolão.",
                 placement: "top",
+                duration: 3000,
                 bgColor: "red.500"
             })
         } finally {
@@ -61,6 +64,9 @@ export function NewPool() {
                     mb={2}
                     placeholder="Qual nome do seu bolão?"
                     onChangeText={setTitle}
+                    autoCapitalize="words"
+                    autoCorrect={true}
+                    maxLength={44}
                     value={title}
                 />
 

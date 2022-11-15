@@ -5,6 +5,7 @@ import { useTheme } from "native-base";
 import { NewPool } from "../screens/NewPool";
 import { Pools } from "../screens/Pools";
 import { FindPool } from "../screens/FindPool";
+import { Details } from "../screens/Details";
 
 import { PlusCircle, SoccerBall } from "phosphor-react-native";
 import { Platform } from "react-native";
@@ -30,13 +31,13 @@ export function AppRoutes() {
             },
             tabBarItemStyle: {
                 position: 'relative',
-                top: Platform.OS === 'android' ? -10 : 0
+                top: Platform.OS === 'android' ? -4 : 0
             }
         }}>
             <Screen
                 name="newpool"
                 component={NewPool}
-                options = {{
+                options={{
                     tabBarIcon: ({ color }) => <PlusCircle color={color} size={size} />,
                     tabBarLabel: "Novo bolão",
                 }}
@@ -45,7 +46,7 @@ export function AppRoutes() {
             <Screen
                 name="pools"
                 component={Pools}
-                options = {{
+                options={{
                     tabBarIcon: ({ color }) => <SoccerBall color={color} size={size} />,
                     tabBarLabel: "Meus bolões",
                 }}
@@ -54,7 +55,15 @@ export function AppRoutes() {
             <Screen
                 name="findpool"
                 component={FindPool}
-                options = {{
+                options={{
+                    tabBarButton: () => null,
+                }}
+            />
+
+            <Screen
+                name="details"
+                component={Details}
+                options={{
                     tabBarButton: () => null,
                 }}
             />
